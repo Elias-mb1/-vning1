@@ -60,6 +60,10 @@
                 messageError.textContent = "fyll i ett meddelande.";
                 isValid = false;
             }
+
+            if (!isValid) {
+                event.preventDefault();
+            }
         });
     </script>
 

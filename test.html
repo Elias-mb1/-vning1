@@ -45,25 +45,20 @@
 
             // kontrollera namn
             if (username === "") {
-                usernameError.textContent = "Vänligen fyll i ditt namn.";
+                usernameError.textContent = "fyll i ditt namn.";
                 isValid = false;
             }
 
             // kontrollera e-postadress
             if (email === "") {
-                emailError.textContent = "Vänligen fyll i din e-postadress.";
+                emailError.textContent = "fyll i din e-postadress.";
                 isValid = false;
             }
 
             // kontrolera meddelande
             if (message === "") {
-                messageError.textContent = "Vänligen fyll i ett meddelande.";
+                messageError.textContent = "fyll i ett meddelande.";
                 isValid = false;
-            }
-
-            // ser till så att formulär inte skickas om de inte är ifyllt
-            if (!isValid) {
-                event.preventDefault();
             }
         });
     </script>

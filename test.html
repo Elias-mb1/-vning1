@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Contact</title>
+
+</head>
+<body>
+    <h1>Contact</h1>
+    <form id="contact">
+        <div class="form-group">
+            <label for="username">Namn:</label><br>
+            <input type="text" id="username" name="username" ><br>
+            <span class="error-message" id="usernameError"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="email">E-postadress:</label><br>
+            <input type="email" id="email" name="email" ><br>
+            <span class="error-message" id="emailError"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="message">Meddelande:</label><br>
+            <textarea id="message" name="message" ></textarea><br>
+            <span class="error-message" id="messageError"></span>
+        </div>
+
+        <input type="submit" value="Skicka">
+    </form>
+
+    <script>
+        document.getElementById("contact").addEventListener("submit", function(event) {
+            // Hämta fältens värden
+            const username = document.getElementById("username").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const message = document.getElementById("message").value.trim();
+
+            // Hämta felmeddelande-platserna
+            const usernameError = document.getElementById("usernameError");
+            const emailError = document.getElementById("emailError");
+            const messageError = document.getElementById("messageError");
+
+            // kontrollera namn
+            if (username === "") {
+                usernameError.textContent = "Vänligen fyll i ditt namn.";
+                isValid = false;
+            }
+
+            // kontrollera e-postadress
+            if (email === "") {
+                emailError.textContent = "Vänligen fyll i din e-postadress.";
+                isValid = false;
+            }
+
+            // kontrolera meddelande
+            if (message === "") {
+                messageError.textContent = "Vänligen fyll i ett meddelande.";
+                isValid = false;
+            }
+
+            // ser till så att formulär inte skickas om de inte är ifyllt
+            if (!isValid) {
+                event.preventDefault();
+            }
+        });
+    </script>
+
+</body>
+</html>
